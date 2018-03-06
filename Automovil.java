@@ -1,34 +1,48 @@
 public abstract class Automovil {
+
+	protected int ID;
 	protected String marca;
 	protected String modelo;
 	protected String matricula;
-	protected Motor tipoMotor;
+	protected TMotor tipoMotor;
 	protected long kilometros;
 	
 	public Automovil (String automovil) {
 		
 		String[] campos = automovil.split(";");
-		
-		this.marca = campos[0];
-		this.modelo = campos[0];
-		this.matricula = campos[0];
-		this.tipoMotor = (Combustible) campos[0];
-		this.kilometros = Long.parseLong(campos[0]);
+		this.ID = Integer.parseInt(campos[0]);
+		this.marca = campos[1];
+		this.modelo = campos[2];
+		this.matricula = campos[3];
+		this.tipoMotor = TMotor.values()[Integer.parseInt(campos[4])];
+		this.kilometros = Long.parseLong(campos[5]);
 		
 	}
 
+	public int getID() {
+		return this.ID;
+	}
+	public String getMarca() {
+		return this.marca;
+	}
+	public String getModelo() {
+		return this.modelo;
+	}
+	public String getMatricula() {
+		return this.matricula;
+	}
 
 	@Override
 	public int hashCode() {
-		return this.ID * this.time * 31;
+		return this.ID * 31;
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		boolean result = false;
-		if (o != null && o instanceof Vehicle) {
-			Vehicle v = (Vehicle)o;
-			if (v.ID == this.ID) {
+		if (o != null && o instanceof Automovil) {
+			Automovil a = (Automovil)o;
+			if (a.ID == this.ID) {
 				result = true;
 			}
 		}
@@ -36,9 +50,9 @@ public abstract class Automovil {
 	}
 	
 	@Override
-	public String toString() {
-		return "Libro [id=" + new Integer(getId()).toString() + ", descripcion=" + getDescripcion() + ", autor=" + autor + 
-				", ISBN=" + ISBN + ", any=" + any + ", estado=" + getEstado().toString() + "]";
-	}
+	public abstract String toString();
+//	{
+//		return "Automovil [ID=" + new Integer(getID()).toString() + ", marca=" + getMarca() + ", modelo=" + getModelo() + ", matricula=" + getMatricula() + "]";
+//	}
 
 }
