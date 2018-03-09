@@ -2,21 +2,18 @@
 public class FactoriaVehiculoGasolina implements FactoriaVehiculo {
 
 	@Override
-	public void crearAutomovil(String automovil) {
-		// TODO Auto-generated method stub
-		
+	public Automovil crearAutomovil(String automovil) {
+		return new AutomovilGasolina(automovil);
 	}
 
 	@Override
-	public void crearMoto(String moto) {
-		// TODO Auto-generated method stub
-		
+	public Moto crearMoto(String moto) {
+		return new MotoGasolina(moto);
 	}
 
 	@Override
-	public void crearFurgoneta(String furgoneta) {
-		// TODO Auto-generated method stub
-		
+	public Furgoneta crearFurgoneta(String furgoneta) {
+		return null;
 	}
 
 }

@@ -1,6 +1,6 @@
 
 public interface FactoriaVehiculo {
-	public void crearAutomovil(String automovil);
-	public void crearMoto(String moto);
-	public void crearFurgoneta(String furgoneta);
+	public Automovil crearAutomovil(String automovil);
+	public Moto crearMoto(String moto);
+	public Furgoneta crearFurgoneta(String furgoneta);
 }
